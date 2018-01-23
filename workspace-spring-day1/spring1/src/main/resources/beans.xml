@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean wiring ? Singleton DP, -->
+	<!--  spring use hashmap to put all bean into container memory -->
+	<!-- xml conf is form begining java 1.4 -->
+	<!-- java 5 => annotation apporach  spring 2.5-->
+	<!--  java confi spring 3.0-->
+	<bean id="passanger" class="com.spring.demo1.Passanger" autowire="byName" scope="prototype">
+		<property name="name" value="raj"/>
+		
+	</bean>
+
+	
+<!-- 	<bean id="vehical1" class="com.spring.demo1.Car" autowire-candidate="false"/> -->
+	<bean id="vehical" class="com.spring.demo1.Car"/>
+	
+</beans>

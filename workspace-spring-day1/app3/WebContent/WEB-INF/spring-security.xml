@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+
+	<!-- <import resource="dispatcher-servlet.xml" />
+
+	<bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="cacheSeconds" value="0" />
+	</bean>
+ -->
+ 
+ <context:component-scan base-package="com.service" />
+ 	<security:http use-expressions="true">
+		<security:intercept-url pattern="/**" access="isAuthenticated()" />
+		<security:form-login />
+		<security:logout logout-url="/logout" logout-success-url="/" />
+	</security:http>
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:user-service>
+				<security:user name="foo" password="foo" authorities="ROLE_ADMIN" />
+				<security:user name="bar" password="bar" authorities="ROLE_USER" />
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+	<security:global-method-security secured-annotations="enabled" />
+
+	<!-- <bean name="userService" class="com.service.UserServiceImp" /> -->
+	
+ 
+ <!-- <security:http pattern="/login" security="none" />
+	<security:http use-expressions="true">
+		<security:intercept-url pattern="/**" access="isAuthenticated()" />
+		
+		<security:form-login login-page="/login" 
+		default-target-url="/" authentication-failure-url="/login" />
+		
+		<security:logout logout-url="/logout" logout-success-url="/" />
+	</security:http>
+
+
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:user-service>
+				<security:user name="foo" password="foo" authorities="Admin, User" />
+				<security:user name="bar" password="bar" authorities="User" />
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager> -->
+<!-- 	
+	<security:http use-expressions="true">
+		<security:intercept-url pattern="/**"
+			access="isAuthenticated()" />
+		<security:form-login />
+		<security:logout logout-url="/logout"
+			logout-success-url="/" />
+	</security:http> -->
+
+
+	<!-- <security:authentication-manager> <security:authentication-provider> 
+		<security:user-service> <security:user name="foo" password="foo" authorities="Admin, 
+		User" /> <security:user name="bar" password="bar" authorities="User" /> </security:user-service> 
+		</security:authentication-provider> </security:authentication-manager> -->
+
+
+	<!-- <security:authentication-manager>
+		<security:authentication-provider>
+			<security:password-encoder ref="encoder" />
+			<security:user-service>
+				<security:user name="foo"
+					password="$2a$12$kGyC6Ce8YZwEtz1ecPFOKOdjmtu0soOWGS5./7TRbDdMeh9QyttPC"
+					authorities="Admin, User" />
+				<security:user name="bar" password="bar" authorities="User" />
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager> -->
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+

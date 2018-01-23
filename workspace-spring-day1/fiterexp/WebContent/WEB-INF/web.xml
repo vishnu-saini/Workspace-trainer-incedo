@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>fiterexp</display-name>
+	<filter>
+		<description>
+		</description>
+		<display-name>MyFilter</display-name>
+		<filter-name>MyFilter</filter-name>
+		<filter-class>com.MyFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>MyFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+	</filter-mapping>
+	<servlet>
+		<description>
+		</description>
+		<display-name>S1</display-name>
+		<servlet-name>S1</servlet-name>
+		<servlet-class>com.S1</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>S2</display-name>
+		<servlet-name>S2</servlet-name>
+		<servlet-class>com.S2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>S1</servlet-name>
+		<url-pattern>/S1</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>S2</servlet-name>
+		<url-pattern>/S2</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
